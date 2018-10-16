@@ -28,7 +28,7 @@ class MassSpringSystem:
         dt = 0.2
 
         # Num iterations.
-        n_iters = 400
+        n_iters = 200
 
         self.params = (x0, v0, m, k, l, dt, n_iters)
 
@@ -92,10 +92,11 @@ class Animator:
         animation = FuncAnimation(
             self.fig, 
             self.step_ani, 
-            frames=range(len(self.x)),
+            frames=range(len(self.x) // 4),
             init_func=self.init_ani, 
             blit=True, 
-            interval=25,
+            interval=50,
+            repeat=False,
         )
         animation.save('../images/springs.gif', dpi=80, writer='imagemagick')
 
